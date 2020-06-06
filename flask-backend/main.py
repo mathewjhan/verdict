@@ -23,7 +23,7 @@ def get_sentiment():
             return {'sentiment': 0,
                     'verdict': "???"}
 
-        result = analyzer.sample_analyze_sentiment(chat)
+        result = analyzer.analyze_sentiment(chat)
 
         return {'sentiment': result["docscore"],
                 'verdict': result["verdict"]}

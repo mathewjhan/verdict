@@ -6,6 +6,20 @@
   text-align: center;
   display: block;
 }
+#chatlog {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto;
+  resize: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow:0 0 2px black;
+}
+textarea::placeholder {
+  font-size: 20px;
+  font-style: italic;
+}
 .divider{
   width:5px;
   height:auto;
@@ -19,10 +33,13 @@
   color: #CE2D4F;
   font-size: 30px;
   display: block;
-  margin: 5%;
+  margin: 30px;
   font-family: 'Open Sans';
 }
 #toxic {
   font-family: 'Metal Mania', cursive;
+}
+#not-toxic {
+  font-style: italic;  
 }
 

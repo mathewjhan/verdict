@@ -29,10 +29,10 @@ export default function Form(props) {
       <form id="chat-form" onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-input" id="text-description">
-            Enter in your chat logs!
+            Verdict.
           </label>
         </h2>
-        <textarea onChange={handleChange} value={chat} id="chatlog" name="new-input" rows="15" cols="50" />
+        <textarea onChange={handleChange} value={chat} id="chatlog" name="new-input" rows="5" cols="50" placeholder="Input a chatlog and determine its sentiment." />
       <br/>
           <button type="submit" className="btn submitButton btn-lrg btn-danger">
             Check Toxicity

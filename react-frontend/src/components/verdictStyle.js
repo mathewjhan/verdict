@@ -5,7 +5,7 @@ export default function VerdictStyle(props) {
       return <span id="not-toxic">NOT TOXIC</span>
     }
     if(props.verdict === "???") {
-      return <span id="???">???</span>
+      return <span id="question">?</span>
     }
     return <span id="toxic">TOXIC</span>
 }

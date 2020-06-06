@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   const [sentiment, setSentiment] = useState(0);
-  const [verdict, setVerdict] = useState("???");
+  const [verdict, setVerdict] = useState("?");
 
   useEffect(() => {
     fetch('/sentiment')
@@ -25,7 +25,7 @@ function App() {
       <div id="result">
         <span id="sentiment">Sentiment: {sentiment}</span>
         <br/>
-        <span id="verdict">Verdict: <VerdictStyle verdict={verdict}/></span>
+        <span id="verdict">Result: <VerdictStyle verdict={verdict}/></span>
       </div>
     </div>
   );

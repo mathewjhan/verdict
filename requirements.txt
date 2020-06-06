@@ -72,7 +72,7 @@ haishoku==1.1.8
 hkdf==0.0.3
 html2text==2019.8.11
 html5lib==1.0.1
-httplib2==0.14.0
+httplib2==0.18.0
 humanfriendly==8.2
 humanize==0.5.1
 hyperlink==19.0.0

@@ -17,6 +17,8 @@ Verdict offers the option to upload a chat log or the transcribed speech of a pl
 
 ## Requirements
 
+***Note:** make sure to have your Google Cloud credentials set up with natural language processing enabled.*
+
 Required backend packages can be installed via pip. Recommended to use a virtualenv.
 
 ```
@@ -34,8 +36,6 @@ npm install
 To build the website, run ```npm run build``` in react-frontend.
 
 Finally, to start the website, run ```python main.py``` in flask-backend and head to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
-
-***Note:** make sure to have your Google Cloud credentials set up with natural language processing enabled.*
 
 ## How we built it
 **Backend:**

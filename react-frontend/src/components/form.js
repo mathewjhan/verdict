@@ -20,6 +20,7 @@ export default function Form(props) {
         props.setSentiment(res.sentiment);
         props.setVerdict(res.verdict);
         props.setSentences(res.worstSentence.map((sentence, i) => {
+        props.setKeywords(res.keywords);
         return [sentence, res.worstScore[i]];
       }).filter((item) => item[0] !== ''));
       });

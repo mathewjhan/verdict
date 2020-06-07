@@ -11,16 +11,36 @@ export default function Results(props) {
 
   return (
     <div id="result">
-      <span id="sentiment">Sentiment: {props.sentiment}</span>
-      <br/>
-      <span id="verdict">Result: <VerdictStyle verdict={props.verdict}/></span>
-      <br/>
       <div id="sentences">
-        <table>
-        <th>Sentence</th>
-        <th>Sentiment</th>
-        {formattedSentences}
+        <table className="table table-danger table-striped table-bordered">
+          <thead className="thead-dark">
+            <tr>
+            <th scole="col">Sentence</th>
+            <th scope="col">Sentiment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {formattedSentences}
+          </tbody>
         </table>
+      </div>
+      <div id="keywords" className="card">
+        <div className="card-body">
+          <h5 class="card-title">Key Phrases</h5>
+          <p class="card-text">{props.keywords.join()}</p>
+        </div>
+      </div>
+      <div id="sentiment" className="card">
+        <div className="card-body">
+          <h5 class="card-title">Overall sentiment</h5>
+          <p class="card-text">{props.sentiment}</p>
+        </div>
+      </div>
+      <div id="verdict" className="card">
+        <div className="card-body">
+          <h5 class="card-title">Result</h5>
+          <p class="card-text"><VerdictStyle verdict={props.verdict}/></p>
+        </div>
       </div>
     </div>
   )

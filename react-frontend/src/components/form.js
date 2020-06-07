@@ -19,9 +19,9 @@ export default function Form(props) {
       .then(res => {
         props.setSentiment(res.sentiment);
         props.setVerdict(res.verdict);
-        props.setSentences(res.worstSentence.map((sentence, i) => {
         props.setKeywords(res.keywords);
-        return [sentence, res.worstScore[i]];
+        props.setSentences(res.worstSentence.map((sentence, i) => {
+          return [sentence, res.worstScore[i]];
       }).filter((item) => item[0] !== ''));
       });
   }
@@ -40,7 +40,7 @@ export default function Form(props) {
             Verdict.
           </label>
         </h2>
-        <textarea onChange={handleChange} value={chat} id="chatlog" name="new-input" rows="5" cols="50" placeholder="Input a chatlog and determine its sentiment." />
+        <textarea onChange={handleChange} value={chat} id="chatlog" name="new-input" rows="7" cols="50" placeholder="Input a chatlog and determine its sentiment." />
       <br/>
           <button type="submit" className="btn submitButton btn-lrg btn-danger">
             Check Toxicity

@@ -13,8 +13,15 @@ function App() {
   // Return App component
   return (
     <div className="App">
-      <Form setSentences={setSentences} setKeywords = {setKeywords} setSentiment={setSentiment} setVerdict={setVerdict}/ >
-      <Results sentiment={sentiment} verdict={verdict} sentences={sentences}/>
+      <div className="row">
+        <div id="left-column" className="column">
+          <Form setSentences={setSentences} setKeywords={setKeywords} setSentiment={setSentiment} setVerdict={setVerdict}/>
+        </div>
+
+        <div id="right-column" className="column">
+          <Results sentiment={sentiment} keywords={keywords} verdict={verdict} sentences={sentences}/>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,16 +1,36 @@
 .submitButton{
   display: block;
 }
-#form-container {
-  margin-top: 5%;
+#title {
+  font-family: 'Open Sans';
   text-align: center;
-  display: block;
+  text-size: 30px;
+  padding: 2%;
+}
+#left-column {
+  position: relative;
+}
+#right-column {
+  position: relative;
+}
+.name {
+  font-weight: bold;
+}
+#form-container {
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  padding-left: 10%;
+  padding-top: 20%;
+  padding-right: 5%;
 }
 #chatlog {
-  margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
   padding: 20px;
-  overflow: auto;
+  overflow: hidden;
   resize: none;
   border-radius: 5px;
   outline: none;
@@ -25,24 +45,42 @@ textarea::placeholder {
   height:auto;
   display:inline-block;
 }
+table {
+  font-size: 20px;
+}
 #text-description {
   color: #CC5A71;
 }
 #result {
-  text-align: center;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  padding-left: 5%;
+  padding-top: 10%;
+  padding-right: 10%;
   color: #CE2D4F;
-  font-size: 30px;
   display: block;
-  margin: 30px;
   font-family: 'Open Sans';
+  word-wrap: break-word;
 }
 #toxic {
   font-family: 'Metal Mania', cursive;
+  text-size: 30px;
 }
 #not-toxic {
   font-weight: bold;  
+  text-size: 30px;
 }
 #sentences {
   text-align: left;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 

@@ -1,21 +1,21 @@
 from google.cloud import language_v1
 from google.cloud.language_v1 import enums
 
-docscore = 0
+
 
 class Analyzer:
     def __init__(self):
-        pass
+        self.result = dict()
 
     # Sample code from Google
-    def sample_analyze_entities(self, text_content):
+    def analyze_entities(self, text_content):
+        entitylist = []
         """
         Analyzing Entities in a String
 
         Args:
           text_content The text content to analyze
         """
-
         client = language_v1.LanguageServiceClient()
 
         # Available types: PLAIN_TEXT, HTML
@@ -33,31 +33,9 @@ class Analyzer:
         response = client.analyze_entities(document, encoding_type=encoding_type)
         # Loop through entitites returned from the API
         for entity in response.entities:
-            print(u"Representative name for the entity: {}".format(entity.name))
-            # Get entity type, e.g. PERSON, LOCATION, ADDRESS, NUMBER, et al
-            print(u"Entity type: {}".format(enums.Entity.Type(entity.type).name))
-            # Get the salience score associated with the entity in the [0, 1.0] range
-            print(u"Salience score: {}".format(entity.salience))
-            # Loop over the metadata associated with entity. For many known entities,
-            # the metadata is a Wikipedia URL (wikipedia_url) and Knowledge Graph MID (mid).
-            # Some entity types may have additional metadata, e.g. ADDRESS entities
-            # may have metadata for the address street_name, postal_code, et al.
-            for metadata_name, metadata_value in entity.metadata.items():
-                print(u"{}: {}".format(metadata_name, metadata_value))
+            entitylist.append(entity.name)
 
-            # Loop over the mentions of this entity in the input document.
-            # The API currently supports proper noun mentions.
-            #for mention in entity.mentions:
-                #print(u"Mention text: {}".format(mention.text.content))
-                # Get the mention type, e.g. PROPER for proper noun
-                #print(
-                #    u"Mention type: {}".format(enums.EntityMention.Type(mention.type).name)
-                #)
-
-        # Get the language of the text, which will be the same as
-        # the language specified in the request or, if not specified,
-        # the automatically-detected language.
-        print(u"Language of the text: {}".format(response.language))
+        self.result["entities"] = entitylist
 
     def process_text(self, text_content):
         temp_text_list = text_content.split('\n')
@@ -69,7 +47,7 @@ class Analyzer:
             else:
                 if(line.strip() != ""):
                     new_text_list.append(line.strip())
-        new_text = "\n".join(new_text_list)
+        new_text = "\n\n".join(new_text_list)
         return new_text
 
 
@@ -80,27 +58,56 @@ class Analyzer:
         Args:
           text_content The text content to analyze
         """
+        sentencelist = []
+        scorelist = []
 
-        result = dict()
 
         client = language_v1.LanguageServiceClient()
 
+        # Available types: PLAIN_TEXT, HTML
         type_ = enums.Document.Type.PLAIN_TEXT
 
+        # Optional. If not specified, the language is automatically detected.
+        # For list of supported languages:
+        # https://cloud.google.com/natural-language/docs/languages
         language = "en"
         document = {"content": self.process_text(text_content), "type": type_, "language": language}
 
+        # Available values: NONE, UTF8, UTF16, UTF32
         encoding_type = enums.EncodingType.UTF8
 
         response = client.analyze_sentiment(document, encoding_type=encoding_type)
-
         # Get overall sentiment of the input document
         docscore = response.document_sentiment.score
-        result["docscore"] = docscore
+        docscoren = round(docscore,3)
+        self.result["docscore"] = docscoren
+
+        for sentence in response.sentences:
+            sentencelist.append(sentence.text.content)
+            scorelist.append(sentence.sentiment.score)
 
         if docscore>-0.099:
-            result["verdict"] = "NOT TOXIC"
+            self.result["verdict"] = "NOT TOXIC"
         else:
-            result["verdict"] = "TOXIC"
+            self.result["verdict"] = "TOXIC"
 
-        return result
+        worstSentences = ['','','','','']
+        worstScores = [99,99,99,99,99]
+        low = 99
+        index = 0
+
+        for i in range(5):
+            low = 99
+            for x in range(len(sentencelist)):
+                if (scorelist[x]<low):
+                    worstScores[i] = scorelist[x]
+                    worstSentences[i] = sentencelist[x]
+
+                    index = x
+                    low = scorelist[x]
+
+            sentencelist[index] = ''
+            scorelist[index] = 99
+
+        self.result["worstSent"] = worstSentences
+        self.result["worstSco"] = worstScores

@@ -23,10 +23,17 @@ def get_sentiment():
             return {'sentiment': 0,
                     'verdict': "???"}
 
-        result = analyzer.analyze_sentiment(chat)
+        analyzer.analyze_entities(chat)
+        analyzer.analyze_sentiment(chat)
+
+        result = analyzer.result
+
 
         return {'sentiment': result["docscore"],
-                'verdict': result["verdict"]}
+                'verdict': result["verdict"],
+                'worstScore': result["worstSco"],
+                'worstSentence': result["worstSent"],
+                'keywords': result["entities"]}
     return {'sentiment': 0,
             'verdict': "???"}
 

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Form from './components/form'
 import Results from './components/results'
+import Logo from './images/logo.png'
 import './App.css'
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
   // Return App component
   return (
     <div className="App">
+      <div className="header">
+        <img id="logo" src={Logo}/><span>Verdict.</span>
+      </div>
       <div className="row">
         <div id="left-column" className="column">
           <Form setSentences={setSentences} setKeywords={setKeywords} setSentiment={setSentiment} setVerdict={setVerdict}/>

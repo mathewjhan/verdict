@@ -1,11 +1,16 @@
 .submitButton{
   display: block;
 }
-#title {
+.header {
   font-family: 'Open Sans';
+  display: flex;
+  align-items:center;
+  justify-content: center;
   text-align: center;
-  text-size: 30px;
-  padding: 2%;
+  font-size: 50px;
+  padding: 10px;
+  color: #CC5A71;
+  font-weight: bold;
 }
 #left-column {
   position: relative;
@@ -16,13 +21,18 @@
 .name {
   font-weight: bold;
 }
+#logo {
+  width: 70px;
+  height: 50px;
+  vertical-align: middle;
+}
 #form-container {
   text-align: right;
   position: absolute;
   width: 100%;
-  padding-left: 10%;
-  padding-top: 20%;
-  padding-right: 5%;
+  padding-left: 30%;
+  padding-top: 10%;
+  padding-right: 3%;
 }
 #chatlog {
   -webkit-box-sizing: border-box;
@@ -30,7 +40,7 @@
           box-sizing: border-box;
   width: 100%;
   padding: 20px;
-  overflow: hidden;
+  overflow: auto;
   resize: none;
   border-radius: 5px;
   outline: none;
@@ -48,16 +58,13 @@ textarea::placeholder {
 table {
   font-size: 20px;
 }
-#text-description {
-  color: #CC5A71;
-}
 #result {
   position: absolute;
   text-align: left;
   width: 100%;
-  padding-left: 5%;
-  padding-top: 10%;
-  padding-right: 10%;
+  padding-left: 3%;
+  padding-top: 5%;
+  padding-right: 20%;
   color: #CE2D4F;
   display: block;
   font-family: 'Open Sans';

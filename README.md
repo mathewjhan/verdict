@@ -1,4 +1,10 @@
 # Verdict
+<p align="center">  
+  <b>Verdict determines your chatlog sentiment.</b>
+
+  <img src="https://raw.githubusercontent.com/mathewjhan/verdict/master/logo.png">
+</p>
+
 ## Inspiration
 It is an unfortunate truth that online gaming has a reputation for hostility. In a largely consequence-free environment inhabited by mainly anonymous men, it is not uncommon to see everything from racist comments to targeted harassment. For example, in League of Legends, the most played multiplayer PC game in the world, top players and streamers have recently spoken out on the declining state of the community and the concerning lack of punishment for toxic behavior, “There's no point in reporting people because Riot won't ban them, no one is scared of getting in trouble, no one is scared of getting banned.”
 

@@ -35,8 +35,6 @@ export default function Form(props) {
   return (
     <div id="form-container">
       <form id="chat-form" onSubmit={handleSubmit}>
-        <h2 className="label-wrapper">
-        </h2>
         <textarea onChange={handleChange} value={chat} id="chatlog" name="new-input" rows="7" cols="50" placeholder="Input a chatlog and determine its sentiment." />
       <br/>
           <button type="submit" className="btn submitButton btn-lrg btn-danger">

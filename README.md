@@ -15,6 +15,26 @@ We created Verdict to achieve exactly this, as it uses Google Cloud’s natural 
 ## What it does
 Verdict offers the option to upload a chat log or the transcribed speech of a player onto its website in a text format. After that, it reports the overall sentiment of the text, a value between -1 and 1, and classifies the player’s communication as either toxic or not toxic. Furthermore, it also reports the five most negative sections of text where the lowest sentiment was found, providing reviewers a basis upon which they can assign a punishment. Lastly, it also highlights key words from the text, which could include profanity, racist statements, or other extracted entities.
 
+## Requirements
+
+Required backend packages can be installed via pip. Recommended to use a virtualenv.
+
+```
+cd flask-backend
+pip install -r requirements.txt
+```
+
+Required frontend packages can be installed via npm.
+
+```
+cd ../react-frontend
+npm install
+```
+
+To build the website, run ```npm run build``` in react-frontend.
+
+Finally, to start the website, run ```python main.py``` in flask-backend and head to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+
 ## How we built it
 **Backend:**
 Verdict uses Google Cloud's natural language processing API and sentiment analysis to assign a value to both each line of the text as well as the text as a whole. Using this data, we recommend a final decision as well as display the five most negative lines. Furthermore, we use the API to perform entity analysis on the text as a whole and extract meaningful phrases for reviewers to see. This data is then stored into a JSON and sent to the frontend for display.

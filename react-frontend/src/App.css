@@ -3,13 +3,14 @@
 }
 .header {
   font-family: 'Open Sans';
+  background-color: #902923;
   display: flex;
   align-items:center;
   justify-content: center;
   text-align: center;
   font-size: 50px;
   padding: 10px;
-  color: #CC5A71;
+  color: #FFF;
   font-weight: bold;
 }
 #left-column {
@@ -30,7 +31,7 @@
   text-align: right;
   position: absolute;
   width: 100%;
-  padding-left: 30%;
+  padding-left: 40%;
   padding-top: 10%;
   padding-right: 3%;
 }
@@ -64,19 +65,19 @@ table {
   width: 100%;
   padding-left: 3%;
   padding-top: 5%;
-  padding-right: 20%;
-  color: #CE2D4F;
+  padding-right: 30%;
+  color: #A22C29;
   display: block;
   font-family: 'Open Sans';
   word-wrap: break-word;
 }
 #toxic {
   font-family: 'Metal Mania', cursive;
-  text-size: 30px;
+  font-size: 40px;
 }
 #not-toxic {
   font-weight: bold;  
-  text-size: 30px;
+  font-size: 40px;
 }
 #sentences {
   text-align: left;

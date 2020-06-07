@@ -15,7 +15,7 @@ export default function Results(props) {
         <table className="table table-danger table-striped table-bordered">
           <thead className="thead-dark">
             <tr>
-            <th scole="col">Sentence</th>
+            <th scole="col">Phrase</th>
             <th scope="col">Sentiment</th>
             </tr>
           </thead>

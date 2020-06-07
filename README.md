@@ -13,9 +13,12 @@ Unfortunately there is no good solution to this problem. Millions of people play
 We created Verdict to achieve exactly this, as it uses Google Cloud’s natural language processing API to analyze player communication and streamline the process of assessing reports. In the end, a human will still review the report and make a final decision, but using sentiment and entity analysis, Verdict highlights both keywords and the most negative portions of a given chat log, as well as an overall score for the player’s communications and a recommended final decision. We hope that using Verdict, game companies can respond fairly and quickly to toxic behavior and foster a better multiplayer gaming experience for everyone.
 
 ## What it does
-Verdict offers the option to upload a chat log or the transcribed speech of a player onto its website in a text format. After that, it reports the overall sentiment of the text, a value between -1 and 1, and classifies the player’s communication as either toxic or not toxic. Furthermore, it also reports the five most negative sections of text where the lowest sentiment was found, providing reviewers a basis upon which they can assign a punishment. Lastly, it also highlights key words from the text, which could include profanity, racist statements, or other extracted entities.
+Verdict offers the option to upload a chat log or the transcribed speech of a player onto its website in a text format. 
 
 ![image](example_1.PNG)
+
+After that, it reports the overall sentiment of the text, a value between -1 and 1, and classifies the player’s communication as either toxic or not toxic. Furthermore, it also reports the five most negative sections of text where the lowest sentiment was found, providing reviewers a basis upon which they can assign a punishment. Lastly, it also highlights key words from the text, which could include profanity, racist statements, or other extracted entities.
+ 
 ![image](example_2.PNG)
 
 ## Requirements

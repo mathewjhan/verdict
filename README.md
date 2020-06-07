@@ -15,11 +15,11 @@ We created Verdict to achieve exactly this, as it uses Google Cloud’s natural 
 ## What it does
 Verdict offers the option to upload a chat log or the transcribed speech of a player onto its website in a text format. 
 
-![image](example_1.PNG)
+![image](example_2.PNG)
 
 After that, it reports the overall sentiment of the text, a value between -1 and 1, and classifies the player’s communication as either toxic or not toxic. Furthermore, it also reports the five most negative sections of text where the lowest sentiment was found, providing reviewers a basis upon which they can assign a punishment. Lastly, it also highlights key words from the text, which could include profanity, racist statements, or other extracted entities.
  
-![image](example_2.PNG)
+![image](example_1.PNG)
 
 ## Requirements
 

@@ -42,4 +42,7 @@ textarea::placeholder {
 #not-toxic {
   font-weight: bold;  
 }
+#sentences {
+  text-align: left;
+}
 

@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Conditional component for the verdict
 export default function VerdictStyle(props) {
     if(props.verdict === "NOT TOXIC") {
       return <span id="not-toxic">NOT TOXIC</span>

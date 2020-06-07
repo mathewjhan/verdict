@@ -21,7 +21,10 @@ def get_sentiment():
 
         if(chat == ""):
             return {'sentiment': 0,
-                    'verdict': "???"}
+                    'verdict': "???",
+                    'worstScore':[],
+                    'worstSentence':[],
+                    'keywords':[]}
 
         analyzer.analyze_entities(chat)
         analyzer.analyze_sentiment(chat)
@@ -35,7 +38,10 @@ def get_sentiment():
                 'worstSentence': result["worstSent"],
                 'keywords': result["entities"]}
     return {'sentiment': 0,
-            'verdict': "???"}
+            'verdict': "???",
+            'worstScore': [],
+            'worstSentence': [],
+            'keywords': []}
 
 if(__name__ == '__main__'):
     app.run(debug=True)

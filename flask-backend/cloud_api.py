@@ -80,6 +80,7 @@ class Analyzer:
         # Get overall sentiment of the input document
         docscore = response.document_sentiment.score
         docscoren = round(docscore,3)
+
         self.result["docscore"] = docscoren
 
         for sentence in response.sentences:
@@ -100,7 +101,7 @@ class Analyzer:
             low = 99
             for x in range(len(sentencelist)):
                 if (scorelist[x]<low):
-                    worstScores[i] = scorelist[x]
+                    worstScores[i] = round(scorelist[x], 3)
                     worstSentences[i] = sentencelist[x]
 
                     index = x

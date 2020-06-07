@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 export default function Form(props) {
   const [chat, setChat] = useState('');
 
+  // On submission of form, send a POST request to Flask server
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -12,18 +13,24 @@ export default function Form(props) {
       body: JSON.stringify({chat})
     }
 
+    // Send POST request and then update states in App.js
     fetch('/sentiment', requestOptions)
       .then(res => res.json())
       .then(res => {
         props.setSentiment(res.sentiment);
         props.setVerdict(res.verdict);
+        props.setSentences(res.worstSentence.map((sentence, i) => {
+        return [sentence, res.worstScore[i]];
+      }).filter((item) => item[0] !== ''));
       });
   }
 
+  // Handle text area
   function handleChange(e) {
     setChat(e.target.value);
   }
 
+  // Return component
   return (
     <div id="form-container">
       <form id="chat-form" onSubmit={handleSubmit}>
